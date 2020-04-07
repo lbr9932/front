@@ -37,7 +37,7 @@ module.exports = {
  ]
 }
 
-export default {
+module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       TWO: '1+1',
