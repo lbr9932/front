@@ -2,8 +2,6 @@ const path    = require('path');
 const webpack = require('webpack');
 const banner  = require('./banner.js');
 
-
-
 module.exports = {
   mode: 'development',
   entry: {
@@ -35,12 +33,4 @@ module.exports = {
   plugins: [
    new webpack.BannerPlugin(banner)
  ]
-}
-
-export default {
-  plugins: [
-    new webpack.DefinePlugin({
-      TWO: '1+1',
-    }),
-  ]
 }
