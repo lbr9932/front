@@ -34,3 +34,11 @@ module.exports = {
    new webpack.BannerPlugin(banner)
  ]
 }
+
+module.exports = {
+  plugins: [
+    new webpack.DefinePlugin({
+      TWO: '1+1',
+    }),
+  ]
+}
