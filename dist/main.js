@@ -142,7 +142,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ \"./src/math.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_1__);\n\r\nalert(_math_js__WEBPACK_IMPORTED_MODULE_0__[\"sum\"](1, 2)); // 3\r\n\r\nconsole.log(\"v.1.2.3\") // 'v.1.2.3'\r\nconsole.log(false) // true\r\nconsole.log(999) // 999\r\nconsole.log(\"http://dev.api.domain.com\") // 'http://dev.api.domain.com'\r\n\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ \"./src/math.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_1__);\n\r\nalert(_math_js__WEBPACK_IMPORTED_MODULE_0__[\"sum\"](1, 2)); // 3\r\n\r\n\r\nconsole.log(\"development\") // \"development\"\r\nconsole.log(\"v.1.2.3\") // 'v.1.2.3'\r\nconsole.log(false) // true\r\nconsole.log(999) // 999\r\nconsole.log(\"http://dev.api.domain.com\") // 'http://dev.api.domain.com'\r\n\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ }),
 

@@ -2,6 +2,7 @@ const path    = require('path');
 const webpack = require('webpack');
 const banner  = require('./banner.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -17,8 +18,13 @@ module.exports = {
       test: /\.js$/, // .js 확장자로 끝나는 모든 파일
       use: [path.resolve('./myloader.js')] // 방금 만든 로더를 적용한다
     },{
-      test: /\.css$/, // .css 확장자로 끝나는 모든 파일
-      use: ['style-loader', 'css-loader'], // css-loader를 적용한다
+      test: /\.css$/,
+      use: [
+        process.env.NODE_ENV === 'production'
+        ? MiniCssExtractPlugin.loader  // 프로덕션 환경
+        : 'style-loader',  // 개발 환경
+        'css-loader'
+      ],
     },{
       test: /\.png$/,
       use: {
@@ -44,8 +50,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html', // 템플릿 경로를 지정
       templateParameters: { // 템플릿에 주입할 파라매터 변수 지정
-        env: process.env.NODE_ENV === 'development' ? '(개발용)' : '',
+        env: process.env.NODE_ENV === 'development' ? '(개발용)' : '(아닐경우)',
       },
-    })
+    }),
+    new MiniCssExtractPlugin(
+      process.env.NODE_ENV === 'production'
+      ? [ new MiniCssExtractPlugin({filename: `[name].css`}) ]
+      : []
+    )
   ]
 }
