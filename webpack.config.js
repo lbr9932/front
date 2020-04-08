@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     main: './src/app.js'
   },
@@ -20,10 +20,8 @@ module.exports = {
     },{
       test: /\.css$/,
       use: [
-        process.env.NODE_ENV === 'production'
-        ? MiniCssExtractPlugin.loader  // 프로덕션 환경
-        : 'style-loader',  // 개발 환경
-        'css-loader'
+        path.resolve('./myloader.js'),
+        process.env.NODE_ENV === 'production'  ?  MiniCssExtractPlugin.loader : 'style-loader', 'css-loader' // 개발 환경
       ],
     },{
       test: /\.png$/,
@@ -46,17 +44,16 @@ module.exports = {
       PRODUCTION: JSON.stringify(false),
       MAX_COUNT: JSON.stringify(999),
       'api.domain': JSON.stringify('http://dev.api.domain.com'),
+      'api.domain222': process.env.NODE_ENV,
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html', // 템플릿 경로를 지정
       templateParameters: { // 템플릿에 주입할 파라매터 변수 지정
-        env: process.env.NODE_ENV === 'development' ? '(개발용)' : '(아닐경우)',
+        env: process.env.NODE_ENV === 'development' ? '(개발용)' : '',
       },
     }),
     new MiniCssExtractPlugin(
-      process.env.NODE_ENV === 'production'
-      ? [ new MiniCssExtractPlugin({filename: `[name].css`}) ]
-      : []
+      process.env.NODE_ENV === 'production' ? [ new MiniCssExtractPlugin({filename: `[name].css`}) ] : []
     )
   ]
 }
