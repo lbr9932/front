@@ -44,7 +44,6 @@ module.exports = {
       PRODUCTION: JSON.stringify(false),
       MAX_COUNT: JSON.stringify(999),
       'api.domain': JSON.stringify('http://dev.api.domain.com'),
-      'api.domain222': process.env.NODE_ENV,
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html', // 템플릿 경로를 지정
